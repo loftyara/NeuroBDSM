@@ -26,6 +26,8 @@ def main():
                         message.append({'role':'user', 'content':[{'type':'text', 'text':response}]})
             if i>=cfg.min_iterations and cfg.stop_word in response:
                 break
+            for rid, message in messages.items():
+                message.append({'role':'user', 'content':[{'type':'text', 'text':'Continue'}]})
     return 0
 
 if __name__ == "__main__":
